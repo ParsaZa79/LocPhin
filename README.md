@@ -1,4 +1,4 @@
-# LocPhin for Autism Disorder
+# LocPhin
 
 An Application created to find the locaton of autism children if they get lost.
 
