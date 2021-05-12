@@ -1,6 +1,6 @@
-import 'package:autism/models/ChildLocation.dart';
-import 'package:autism/utils/MapUtils.dart';
-import 'package:autism/utils/SocketUtil.dart';
+import 'package:autism/models/child_location.dart';
+import 'package:autism/utils/map_utils.dart';
+import 'package:autism/utils/socket_utils.dart';
 import 'package:flutter/material.dart';
 
 class MapButton extends StatelessWidget {
@@ -16,8 +16,8 @@ class MapButton extends StatelessWidget {
         Center(
           child: Container(
             alignment: Alignment.center,
-            width: 100,
-            height: 100,
+            width: 150,
+            height: 150,
             child: FittedBox(
               child: FloatingActionButton(
                 onPressed: () => {goToMap()},

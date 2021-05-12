@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:autism/models/ChildLocation.dart';
+import 'package:autism/models/child_location.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MapUtils {
