@@ -1,9 +1,8 @@
-import 'package:autism/views/components/nav_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LoginScreen extends StatelessWidget {
-  static final String _routeName = '/facilities-screen';
+  static final String _routeName = '/login-screen';
 
   static String get route {
     return _routeName;
@@ -14,10 +13,9 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        endDrawer: NavDrawer(),
         appBar: AppBar(
             title: Text(
-          "Find Your Child",
+          "Login",
           style: TextStyle(
               color: Colors.amberAccent, fontSize: 25, fontFamily: "Errorist"),
         )),
@@ -30,24 +28,50 @@ class LoginScreen extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   child: TextFormField(
                     decoration: InputDecoration(
-                        labelText: 'حداکثر شعاع فاصله',
-                        hintText: '[200 - 10] ' + 'متر',
-                        alignLabelWithHint: true),
+                      labelText: 'نام کاربری',
+                      alignLabelWithHint: true,
+                      prefixIcon: Icon(Icons.verified_user),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                    ),
                     textInputAction: TextInputAction.next,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   ),
                 ),
                 SizedBox(
                   height: 25,
                 ),
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'رمز عبور',
+                      alignLabelWithHint: true,
+                      prefixIcon: Icon(Icons.lock),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                    ),
+                    textInputAction: TextInputAction.next,
+                    obscureText: true,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Center(
                     child: ElevatedButton(
                   onPressed: () => {},
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ))),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(18.0),
                     child: Text(
-                      'نمایش موقعیت جغرافیایی',
+                      'ورود',
                       textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ))

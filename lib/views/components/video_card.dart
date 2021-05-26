@@ -1,26 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CategoryCard extends StatelessWidget {
+class VideoCard extends StatefulWidget {
   final int id;
   final String title, imageURL;
-  CategoryCard(this.id, this.title, this.imageURL);
+  VideoCard(this.id, this.title, this.imageURL);
+  @override
+  _VideoCardState createState() => _VideoCardState();
+}
 
-  void routeToRelatedScreen(BuildContext ctx, {@required int id}) {
-    var route;
-    switch (id) {
-      case 1:
-        route = '/facilities-screen';
-        break;
-      case 2:
-        route = '/videos-screen';
-        break;
-      case 3:
-        route = '/news-screen';
-        break;
-    }
-    Navigator.of(ctx).pushNamed(route);
-  }
-
+class _VideoCardState extends State<VideoCard> {
+  
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -28,13 +17,15 @@ class CategoryCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
         children: [
-          Image(
-            image: AssetImage(imageURL),
-            height: 118,
-            width: double.infinity,
-            fit: BoxFit.fitWidth,
+          Expanded(
+            child: Image(
+              image: AssetImage(widget.imageURL),
+              // height: 10,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +33,7 @@ class CategoryCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0).copyWith(bottom: 0),
                 child: Text(
-                  title,
+                  widget.title,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                 ),
               ),
@@ -52,7 +43,7 @@ class CategoryCard extends StatelessWidget {
             alignment: MainAxisAlignment.center,
             children: [
               TextButton(
-                onPressed: () => routeToRelatedScreen(context, id: id),
+                onPressed: () => {},
                 child: Text('اطلاعات بیشتر'),
               ),
             ],

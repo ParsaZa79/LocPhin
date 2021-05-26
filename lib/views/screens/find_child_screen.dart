@@ -28,9 +28,12 @@ class FindChildScreen extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   child: TextFormField(
                     decoration: InputDecoration(
-                        labelText: 'حداکثر شعاع فاصله',
-                        hintText: '[200 - 10] ' + 'متر',
-                        alignLabelWithHint: true),
+                      labelText: 'حداکثر شعاع فاصله بر حسب متر',
+                      alignLabelWithHint: true,
+                      prefixIcon: Icon(Icons.label_important),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                    ),
                     textInputAction: TextInputAction.next,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   ),
@@ -66,16 +69,23 @@ class FindChildScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 20,
                 ),
                 Center(
                     child: ElevatedButton(
                   onPressed: () => {},
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ))),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(18.0),
                     child: Text(
                       'نمایش موقعیت جغرافیایی',
                       textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ))

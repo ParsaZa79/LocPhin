@@ -1,5 +1,5 @@
 import 'package:autism/views/screens/contact_us_screen.dart';
-import 'package:autism/views/screens/profile_screen.dart';
+import 'package:autism/views/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavDrawer extends StatefulWidget {
@@ -22,19 +22,6 @@ class _NavDrawerState extends State<NavDrawer> {
 
   void initState() {
     super.initState();
-    drawerTiles = [
-      ListTile(
-        leading: Icon(Icons.verified_user),
-        title: Text('پروفایل'),
-        onTap: () =>
-            {onDrawerItemPressed(contextInstance, ProfileScreen.route)},
-      ),
-      ListTile(
-        leading: Icon(Icons.border_color),
-        title: Text('ارتباط با ما'),
-        onTap: () => {onDrawerItemPressed(context, ContactUsScreen.route)},
-      ),
-    ];
   }
 
   @override
@@ -46,7 +33,7 @@ class _NavDrawerState extends State<NavDrawer> {
           leading: Icon(Icons.verified_user),
           title: Text('پروفایل'),
           onTap: () =>
-              {onDrawerItemPressed(contextInstance, ProfileScreen.route)},
+              {onDrawerItemPressed(contextInstance, SignUpScreen.route)},
         ),
         ListTile(
           leading: Icon(Icons.border_color),

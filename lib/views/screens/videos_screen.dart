@@ -18,7 +18,7 @@ class VideosScreen extends StatelessWidget {
                 fontSize: 25,
                 fontFamily: "Errorist"),
           ),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.grey[700],
           centerTitle: true,
         ),
         body: Center(

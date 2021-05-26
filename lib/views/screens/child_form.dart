@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-class SignUpScreen extends StatelessWidget {
-  static final String _routeName = '/sign-up-screen';
+class ChildForm extends StatefulWidget {
+  @override
+  _ChildFormState createState() => _ChildFormState();
+}
 
-  static String get route {
-    return _routeName;
-  }
-
-  const SignUpScreen({Key key}) : super(key: key);
-
+class _ChildFormState extends State<ChildForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

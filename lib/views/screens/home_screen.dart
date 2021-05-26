@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       endDrawer: NavDrawer(),
       appBar: AppBar(
         title: Text(
@@ -33,7 +34,7 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.all(25),
           children: categories
               .map((catData) => CategoryCard(
-                  catData.id, catData.title, catData.color, catData.imageURL))
+                  catData.id, catData.title, catData.imageURL))
               .toList(),
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 400,
