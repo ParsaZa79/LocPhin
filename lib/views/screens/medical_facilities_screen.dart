@@ -42,7 +42,7 @@ class MedicalFacilityRow extends StatelessWidget {
     final planetThumbnail = Container(
       alignment: FractionalOffset.centerRight,
       child: Image(
-        image: AssetImage(medicalFacility.imageURL),
+        image: AssetImage(medicalFacility.imageURL!),
         height: 92.0,
         width: 92.0,
       ),
@@ -65,13 +65,13 @@ class MedicalFacilityRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(height: 14.0),
-          Text(medicalFacility.name, style: headerTextStyle),
+          Text(medicalFacility.name!, style: headerTextStyle),
           Container(height: 10.0),
-          Text(medicalFacility.website, style: subHeaderTextStyle),
+          Text(medicalFacility.website!, style: subHeaderTextStyle),
           Container(
               margin: EdgeInsets.symmetric(vertical: 8.0),
               height: 2.0,
-              width: (medicalFacility.name.length * 4).toDouble(),
+              width: (medicalFacility.name!.length * 4).toDouble(),
               color: Color(0xff00c6ff)),
         ],
       ),

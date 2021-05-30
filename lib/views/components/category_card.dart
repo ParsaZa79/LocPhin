@@ -5,7 +5,7 @@ class CategoryCard extends StatelessWidget {
   final String title, imageURL;
   CategoryCard(this.id, this.title, this.imageURL);
 
-  void routeToRelatedScreen(BuildContext ctx, {@required int id}) {
+  void routeToRelatedScreen(BuildContext ctx, {@required int? id}) {
     var route;
     switch (id) {
       case 1:
@@ -29,12 +29,15 @@ class CategoryCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image(
-            image: AssetImage(imageURL),
-            height: 118,
-            width: double.infinity,
-            fit: BoxFit.fitWidth,
+          Container(
+            child: Image(
+              image: AssetImage(imageURL),
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.fitWidth,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

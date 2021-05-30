@@ -7,7 +7,7 @@ import 'package:gson/gson.dart';
 class SocketUtil {
   static const String SERVER_IP = "192.168.43.141";
   static const int SERVER_PORT = 8585;
-  static double xLang, yLang;
+  static double? xLang, yLang;
 
   static void listenToSocket() async {
     try {
@@ -35,13 +35,13 @@ class SocketUtil {
     }
   }
 
-  static void sendMessage({@required String message, @required Socket socket}) {
-    var length = message.length;
+  static void sendMessage({@required String? message, @required Socket? socket}) {
+    var length = message!.length;
     var byteList = int32bytes(length).reversed;
     for (var i in byteList) {
-      socket.write(String.fromCharCode(i));
+      socket!.write(String.fromCharCode(i));
     }
-    socket.write(message);
+    socket!.write(message);
   }
 
   static Int8List int32bytes(int value) =>

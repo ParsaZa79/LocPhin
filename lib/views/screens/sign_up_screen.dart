@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SignUpScreen extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
   static final String _routeName = '/sign-up-screen';
 
   static String get route {
     return _routeName;
   }
 
-  const SignUpScreen({Key key}) : super(key: key);
+  SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,12 @@ class SignUpScreen extends StatelessWidget {
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'لطفا فرم را کامل کنید';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       labelText: 'نام کاربری',
                       alignLabelWithHint: true,
@@ -91,7 +98,11 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 Center(
                     child: ElevatedButton(
-                  onPressed: () => {},
+                  onPressed: () => {
+                    if (_formKey.currentState!.validate()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Processing Data')))
+                    }
+                  },
                   style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(

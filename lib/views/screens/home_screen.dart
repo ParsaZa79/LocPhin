@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
     return _routeName;
   }
 
-  const HomeScreen({Key key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   void routeToFindScreen(BuildContext ctx) {
     Navigator.of(ctx).pushNamed('/find-child-screen');
@@ -30,18 +30,17 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.cyan[800],
         centerTitle: true,
       ),
-      body: GridView(
-          padding: EdgeInsets.all(25),
+      body: SingleChildScrollView(
+        child: Column(
           children: categories
-              .map((catData) => CategoryCard(
-                  catData.id, catData.title, catData.imageURL))
+              .map((catData) =>
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: CategoryCard(catData.id!, catData.title!, catData.imageURL!),
+                  ))
               .toList(),
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 400,
-            childAspectRatio: 5 / 3,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
-          )),
+        ),
+      ),
       floatingActionButton: Container(
         width: 75,
         height: 75,

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class MapButton extends StatelessWidget {
   const MapButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -33,7 +33,7 @@ class MapButton extends StatelessWidget {
 
   static Future<ChildLocation> getCoords() async {
     SocketUtil.listenToSocket();
-    double x = SocketUtil.xLang, y = SocketUtil.yLang;
+    double x = SocketUtil.xLang!, y = SocketUtil.yLang!;
     return ChildLocation(x: x, y: y);
   }
 

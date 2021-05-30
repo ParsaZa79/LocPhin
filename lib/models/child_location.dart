@@ -1,4 +1,4 @@
 class ChildLocation {
-  double x, y;
+  double? x, y;
   ChildLocation({this.x, this.y});
 }

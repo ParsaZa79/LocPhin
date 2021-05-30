@@ -8,12 +8,12 @@ class NavDrawer extends StatefulWidget {
 }
 
 class _NavDrawerState extends State<NavDrawer> {
-  String lgStatus;
-  BuildContext contextInstance;
-  List<Widget> drawerTiles;
+  String? lgStatus;
+  BuildContext? contextInstance;
+  List<Widget>? drawerTiles;
 
   String get loginStatus {
-    return lgStatus;
+    return lgStatus!;
   }
 
   void onDrawerItemPressed(BuildContext ctx, String routeName) {
@@ -33,13 +33,13 @@ class _NavDrawerState extends State<NavDrawer> {
           leading: Icon(Icons.verified_user),
           title: Text('پروفایل'),
           onTap: () =>
-              {onDrawerItemPressed(contextInstance, SignUpScreen.route)},
+              {onDrawerItemPressed(contextInstance!, SignUpScreen.route)},
         ),
         ListTile(
           leading: Icon(Icons.border_color),
           title: Text('ارتباط با ما'),
           onTap: () =>
-              {onDrawerItemPressed(contextInstance, ContactUsScreen.route)},
+              {onDrawerItemPressed(contextInstance!, ContactUsScreen.route)},
         ),
       ];
     });
@@ -52,7 +52,7 @@ class _NavDrawerState extends State<NavDrawer> {
             SafeArea(
               child: Directionality(
                 textDirection: TextDirection.rtl,
-                child: Column(children: drawerTiles),
+                child: Column(children: drawerTiles!),
               ),
             ),
           ],

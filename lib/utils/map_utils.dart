@@ -7,7 +7,7 @@ class MapUtils {
   MapUtils._();
 
   static Future<void> openMap(ChildLocation location) async {
-    double latitude = location.x, longitude = location.y;
+    double latitude = location.x!, longitude = location.y!;
     String googleUrl =
         'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
     if (await canLaunch(googleUrl)) {

@@ -8,7 +8,7 @@ class LoginScreen extends StatelessWidget {
     return _routeName;
   }
 
-  const LoginScreen({Key key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

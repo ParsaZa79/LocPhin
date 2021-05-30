@@ -8,7 +8,7 @@ class FindChildScreen extends StatelessWidget {
     return _routeName;
   }
 
-  const FindChildScreen({Key key}) : super(key: key);
+  const FindChildScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

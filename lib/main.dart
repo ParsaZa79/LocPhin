@@ -8,8 +8,12 @@ import 'package:autism/views/screens/profile_screen.dart';
 import 'package:autism/views/screens/sign_up_screen.dart';
 import 'package:autism/views/screens/videos_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MyHomePage());
 }
 
