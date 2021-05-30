@@ -29,7 +29,7 @@ class SignUpScreen extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   child: TextFormField(
                     validator: (value) {
-                      if (value!.isEmpty) {
+                      if (value!.length < 3) {
                         return 'لطفا فرم را کامل کنید';
                       }
                       return null;
@@ -50,6 +50,12 @@ class SignUpScreen extends StatelessWidget {
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextFormField(
+                    validator: (value) {
+                      if (value!.length < 3) {
+                        return 'لطفا فرم را کامل کنید';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       labelText: 'نام',
                       alignLabelWithHint: true,
@@ -66,6 +72,12 @@ class SignUpScreen extends StatelessWidget {
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextFormField(
+                    validator: (value) {
+                      if (value!.length < 3) {
+                        return 'لطفا فرم را کامل کنید';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       labelText: 'نام خانوادگی',
                       alignLabelWithHint: true,
@@ -82,6 +94,12 @@ class SignUpScreen extends StatelessWidget {
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextFormField(
+                    validator: (value) {
+                      if (value!.length < 3) {
+                        return 'لطفا فرم را کامل کنید';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       labelText: 'رمز عبور',
                       alignLabelWithHint: true,
@@ -99,9 +117,7 @@ class SignUpScreen extends StatelessWidget {
                 Center(
                     child: ElevatedButton(
                   onPressed: () => {
-                    if (_formKey.currentState!.validate()) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Processing Data')))
-                    }
+                    if (_formKey.currentState!.validate()) {print('done')}
                   },
                   style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
