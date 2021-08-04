@@ -8,34 +8,42 @@ class SocketUtil {
   static const String SERVER_IP = "192.168.43.141";
   static const int SERVER_PORT = 8585;
   static double? xLang, yLang;
+  static bool? isDeviceCodeCorrect;
 
-  static void listenToSocket() async {
+  static void listenToSocket(deviceCode) async {
     try {
-      await Socket.connect('192.168.43.141', 8585).then((socket) {
+      Socket.connect(SERVER_IP, SERVER_PORT).then((socket) {
         print('Connected to: '
             '${socket.remoteAddress.address}:${socket.remotePort}');
         sendMessage(message: 'p', socket: socket);
         var msg = gson.encode({
-          'device_code': '0',
+          'device_code': '$deviceCode',
         }, beautify: true);
+        print('JSON file:\n$msg');
         sendMessage(message: msg, socket: socket);
+        print('JSON file sent...');
         socket.listen((data) {
+          print('Data received...');
           var receivedMessage = utf8.decode(data);
           var braceIndex = receivedMessage.indexOf('{');
           var res = receivedMessage.substring(braceIndex);
+          print('Received JSON file:\n$res');
           Map<String, dynamic> json = jsonDecode(res);
           xLang = json['x_lang'];
           yLang = json['y_lang'];
-          print(xLang);
-          print(yLang);
+          isDeviceCodeCorrect = (xLang == 0.0 && yLang == 0.0) ? false : true;
+          print(isDeviceCodeCorrect! ? 'Correct format!' : 'Incorrect format!');
+          print('Closing the socket...');
+          socket.close();
         });
       });
     } catch (err) {
-      print('An unexpected error happened!');
+      print("Couldn't connect to the socket!");
     }
   }
 
-  static void sendMessage({@required String? message, @required Socket? socket}) {
+  static void sendMessage(
+      {@required String? message, @required Socket? socket}) {
     var length = message!.length;
     var byteList = int32bytes(length).reversed;
     for (var i in byteList) {

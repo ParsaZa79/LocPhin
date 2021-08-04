@@ -23,44 +23,47 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            child: Image(
-              image: AssetImage(imageURL),
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.fitWidth,
+    return InkWell(
+      onTap: () => routeToRelatedScreen(context, id: id),
+      child: Card(
+        elevation: 2.5,
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              child: Image(
+                image: AssetImage(imageURL),
+                // height: 250,
+                width: double.infinity,
+                fit: BoxFit.fitWidth,
+              ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0).copyWith(bottom: 0),
-                child: Text(
-                  title,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0).copyWith(bottom: 0),
+                  child: Text(
+                    title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  ),
                 ),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                onPressed: () => routeToRelatedScreen(context, id: id),
-                child: Text('اطلاعات بیشتر'),
-              ),
-            ],
-          )
-        ],
+              ],
+            ),
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () => routeToRelatedScreen(context, id: id),
+                  child: Text('اطلاعات بیشتر'),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

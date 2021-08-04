@@ -14,11 +14,14 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text(
-          "Login",
-          style: TextStyle(
-              color: Colors.amberAccent, fontSize: 25, fontFamily: "Errorist"),
-        )),
+          title: Text(
+            "Login",
+            style: TextStyle(
+                color: Colors.amberAccent,
+                fontSize: 25,
+                fontFamily: "Errorist"),
+          ),
+        ),
         body: Container(
           padding: EdgeInsets.all(15),
           child: Form(

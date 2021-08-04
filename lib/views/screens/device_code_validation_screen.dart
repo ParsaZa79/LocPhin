@@ -1,23 +1,24 @@
 import 'package:autism/utils/socket_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/cupertino.dart';
 import '../../extensions/string_extensions.dart';
 
-class SignUpScreen extends StatefulWidget {
-  static final String _routeName = '/sign-up-screen';
+class DeviceCodeValidationScreen extends StatefulWidget {
+  static final String _routeName = '/device-code-validation';
 
   static String get route {
     return _routeName;
   }
 
-  SignUpScreen({Key? key}) : super(key: key);
+  DeviceCodeValidationScreen({Key? key}) : super(key: key);
 
   @override
-  _SignUpScreenState createState() => _SignUpScreenState();
+  _DeviceCodeValidationScreenState createState() =>
+      _DeviceCodeValidationScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _DeviceCodeValidationScreenState
+    extends State<DeviceCodeValidationScreen> {
   final _formKey = GlobalKey<FormState>();
 
   String? _deviceCode;
@@ -38,7 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         decoration: InputDecoration(
           labelText: 'کد دستگاه',
           alignLabelWithHint: true,
-          prefixIcon: Icon(Icons.sim_card),
+          prefixIcon: Icon(Icons.device_unknown_rounded),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(15))),
         ),
@@ -102,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             "اتصال به دستگاه",
             style: TextStyle(
               color: Colors.black,
-              fontSize: 16,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),

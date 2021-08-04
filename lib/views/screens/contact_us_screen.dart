@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class ContactUsScreen extends StatelessWidget {
   static final String _routeName = '/contact-us-screen';
@@ -10,19 +11,34 @@ class ContactUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Contact Us",
-            style: TextStyle(
-                color: Colors.amberAccent,
-                fontSize: 25,
-                fontFamily: "Errorist"),
+      appBar: AppBar(
+        title: Text(
+          "ارتباط با ما",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
           ),
-          backgroundColor: Colors.red,
-          centerTitle: true,
         ),
-        body: Center(
-          child: Text('Hi'),
-        ));
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: Column(
+        children: [
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Row(
+                children: [
+                  "آدرس".text.xl.make(),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

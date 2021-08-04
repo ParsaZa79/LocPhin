@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 final double kToolbarHeight = 56.0;
 
@@ -15,4 +16,9 @@ double screenAwareSize(double size, BuildContext context) {
 
 double deviceHeight(BuildContext context) {
   return MediaQuery.of(context).size.height;
+}
+
+mixin UiUtils {
+  static Color primaryColor = Vx.randomPrimaryColor;
+  static Color secondaryColor = Vx.randomOpaqueColor;
 }

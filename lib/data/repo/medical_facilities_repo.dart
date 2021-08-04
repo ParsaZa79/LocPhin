@@ -1,4 +1,4 @@
-import '../models/medical_facility.dart';
+import '../../models/medical_facility.dart';
 import 'package:flutter/material.dart';
 
 const facilities = const [

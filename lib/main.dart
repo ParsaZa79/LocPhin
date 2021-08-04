@@ -1,4 +1,5 @@
 import 'package:autism/views/screens/contact_us_screen.dart';
+import 'package:autism/views/screens/device_code_validation_screen.dart';
 import 'package:autism/views/screens/find_child_screen.dart';
 import 'package:autism/views/screens/home_screen.dart';
 import 'package:autism/views/screens/login_screen.dart';
@@ -9,12 +10,17 @@ import 'package:autism/views/screens/sign_up_screen.dart';
 import 'package:autism/views/screens/videos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  runApp(MyHomePage());
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  runApp(
+    MyHomePage(),
+  );
 }
 
 class MyHomePage extends StatelessWidget {
@@ -24,13 +30,15 @@ class MyHomePage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "LocPhin",
       theme: ThemeData(
-          primarySwatch: Colors.cyan,
-          accentColor: Colors.blueAccent,
-          canvasColor: Color.fromRGBO(231, 237, 231, 1),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          fontFamily: 'IranSans'),
-      home: HomeScreen(),
+        primarySwatch: Colors.indigo,
+        accentColor: Colors.green,
+        canvasColor: Vx.blueGray300,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: 'IranSans',
+      ),
+      // home: SignUpScreen(),
       routes: {
+        '/': (ctx) => HomeScreen(),
         MedicalFacilitiesScreen.route: (ctx) => MedicalFacilitiesScreen(),
         VideosScreen.route: (ctx) => VideosScreen(),
         NewsScreen.route: (ctx) => NewsScreen(),
@@ -39,7 +47,8 @@ class MyHomePage extends StatelessWidget {
         ContactUsScreen.route: (ctx) => ContactUsScreen(),
         ProfileScreen.route: (ctx) => ProfileScreen(),
         SignUpScreen.route: (ctx) => SignUpScreen(),
-        LoginScreen.route: (ctx) => LoginScreen()
+        LoginScreen.route: (ctx) => LoginScreen(),
+        DeviceCodeValidationScreen.route: (ctx) => DeviceCodeValidationScreen(),
       },
     );
   }

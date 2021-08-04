@@ -10,19 +10,23 @@ class VideosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Videos",
-            style: TextStyle(
-                color: Colors.amberAccent,
-                fontSize: 25,
-                fontFamily: "Errorist"),
+      appBar: AppBar(
+        title: Text(
+          "ویدیوها",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            fontFamily: "IranSans",
           ),
-          backgroundColor: Colors.grey[700],
-          centerTitle: true,
         ),
-        body: Center(
-          child: Text('Hi'),
-        ));
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: Center(
+        child: Text('Hi'),
+      ),
+    );
   }
 }

@@ -32,7 +32,7 @@ class MapButton extends StatelessWidget {
   }
 
   static Future<ChildLocation> getCoords() async {
-    SocketUtil.listenToSocket();
+    SocketUtil.listenToSocket("0");
     double x = SocketUtil.xLang!, y = SocketUtil.yLang!;
     return ChildLocation(x: x, y: y);
   }

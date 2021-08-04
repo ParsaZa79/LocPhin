@@ -1,0 +1,1 @@
+enum ParentalStatus { parent, child }
